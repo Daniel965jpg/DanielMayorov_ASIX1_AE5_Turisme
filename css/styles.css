@@ -1,0 +1,285 @@
+
+* {
+    /* [CLAVE] Cambia el modelo de caja: el padding y borde se incluyen dentro del ancho total */
+    box-sizing: border-box; 
+}
+
+body {
+    margin: 0; /* Elimina los márgenes que pone el navegador */
+    font-family: 'Poppins', sans-serif; /* Define la letra principal */
+    background-color: #f0f4f8; /* Color de fondo gris azulado suave */
+    color: #334e68; /* Color de texto gris oscuro (mejor que negro puro) */
+}
+
+/* Flexbox */
+.contenedor-principal {
+    display: flex; /* IMPORTANTE Convierte la caja en un contenedor flexible */
+    flex-direction: row; /* Coloca el menú y contenido uno al lado del otro */
+    width: 100%; /* Ocupa todo el ancho que tiene disponible */
+    
+    /* [AVANZADO] Calcula: Altura total de la pantalla (100vh) MENOS la altura del footer (120px) */
+    /* Esto evita que quede un hueco blanco debajo si hay poco contenido */
+    /* Herramienta utilizada con Gemini para mayor resultado */
+    min-height: calc(100vh - 120px); 
+}
+
+/* COLUMNA 1: MENÚ LATERAL */
+.columna-menu {
+    width: 20%; /* Ocupa el 20% del ancho de la pantalla */
+    background-color: #102a43; /* Fondo azul oscuro */
+    color: white; /* Texto blanco */
+    padding: 25px; /* Espacio interno */
+    
+    /* Herramienta externa, Sticky: Se comporta normal, pero se queda "pegado" al techo al hacer scroll */
+    position: sticky; 
+    top: 0; /* Indica que se pegue justo en el borde superior */
+    height: 100vh; /* Altura igual al alto de la pantalla */
+}
+
+.columna-menu h3 {
+    border-bottom: 2px solid #334e68; /* Línea decorativa debajo del título */
+    padding-bottom: 10px; /* Separación entre texto y línea */
+    margin-bottom: 20px; /* Separación entre línea y el siguiente elemento */
+}
+
+.columna-menu ul {
+    list-style: none; /* Elimina los puntos o viñetas de la lista, por si acaso (me salían puntos antes) */
+    padding: 0; /* Elimina el padding izquierdo por defecto de las listas */
+}
+
+.columna-menu a {
+    display: block; /* IMPORTANTE Hace que todo el renglón sea clicable, no solo el texto */
+    color: #bcccdc; /* Color gris claro para los enlaces */
+    text-decoration: none; /* Quita el subrayado típico de los enlaces */
+    padding: 10px 0; /* Espacio arriba y abajo para separar botones */
+    
+    /* Una animación que lo que hace es suavizar el cambio de color */
+    transition: color 0.3s ease; 
+}
+
+.columna-menu a:hover {
+    color: #ffffff; /* Cambia a blanco puro al pasar el ratón */
+    text-decoration: underline; /* Añade subrayado al pasar el ratón */
+}
+
+/* COLUMNA 2: CONTENIDO CENTRAL */
+.columna-central {
+    width: 60%; /* Ocupa la parte central (el 60% del ancho) */
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 40px; /* Espacio interno */
+    border-left: 1px solid #d9e2ec; /* Línea gris fina a la izquierda */
+    border-right: 1px solid #d9e2ec; /* Línea gris fina a la derecha */
+}
+
+section {
+    margin-bottom: 50px; /* Separación grande entre secciones */
+    padding-bottom: 30px; /* Espacio interno abajo */
+    border-bottom: 1px dashed #d9e2ec; /* Crea una línea de guiones para separar secciones visualmente */
+}
+
+h2 {
+    color: #0077cc; /* Azul brillante para títulos */
+    text-transform: uppercase; /* Fuerza el texto a mayúsculas */
+    letter-spacing: 1px; /* Separa un poco las letras entre ellas */
+}
+
+/* "+" selecciona solo el párrafo que va justo después de un h3 */
+h3 + p {
+    margin-top: 5px; /* Reduce el margen superior de ese párrafo concreto */
+}
+
+/* GALERÍA DE FOTOS */
+.galeria-grid {
+    display: flex; /* Activa Flexbox para las fotos */
+    flex-wrap: wrap; /* Importante , permite que las fotos salten a la siguiente línea si no caben */
+    gap: 15px; /* Es la separación entre una foto y otra para que no salgan pegadas */
+}
+
+.foto {
+    position: relative; /* Necesario para que el texto se coloque encima */
+    width: 30%;    /* "Ocupa un 30% del ancho". Así caben 3 fotos por fila. */
+    flex-grow: 1;  /* "Si sobra espacio a los lados, estírate para rellenarlo". */
+    height: 150px; /* Altura fija */
+    overflow: hidden; /* Recorta la imagen si se sale de la caja */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Sale la manita al pasar el ratón */
+}
+
+.foto img {
+    width: 100%; /* La imagen ocupa todo el ancho de su caja */
+    height: 100%; /* La imagen ocupa todo el alto de su caja */
+    
+    /* [CLAVE] "cover" recorta la imagen para llenar el hueco sin deformarla (sin estirarla) */
+    object-fit: cover; 
+    transition: transform 0.3s ease; /* Prepara la animación de transformación */
+}
+
+/* [EFECTO] Al pasar el ratón por la caja .foto, la imagen de dentro se escala */
+.foto:hover img {
+    transform: scale(1.1); /* Aumenta el tamaño un 10% (Zoom) */
+}
+
+/* Estilo para la cajita de texto que va encima de la foto */
+.texto-oculto {
+    position: absolute; /* Se coloca flotando encima de la imagen */
+    bottom: 0; /* Pegado a la parte baja */
+    left: 0; /* Pega la caja al borde izquierdo de la foto */
+    width: 100%; /* Ocupa todo el ancho de la foto */
+    
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro semitransparente */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    
+    /* Aparición */
+    opacity: 0; /* Empieza invisible */
+    transition: opacity 0.3s; /* Cuando cambie, que lo haga de forma suave */
+}
+
+/* Cuando paso el ratón por la foto (.foto:hover), cambio el estilo del texto */
+.foto:hover .texto-oculto {
+    opacity: 1; /* Se vuelve totalmente visible */
+}
+
+/* FICHAS DE BARRIOS */
+.ficha {
+    background-color: #f8fafc; /* Fondo gris muy claro */
+    border-left: 4px solid #0077cc; /* Borde grueso azul solo a la izquierda */
+    padding: 20px; /* Relleno interno */
+    margin-bottom: 25px; /* Separación externa */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombra muy suave para dar un poco de profundidad */
+}
+
+.ficha img {
+    width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+    height: 200px; /* Obligamos a que todas las fotos midan lo mismo de alto */
+    object-fit: cover; /* Recorta la imagen automáticamente para que no se deforme ni se vea aplastada */
+    border-radius: 4px; /* Redondea un poco las esquinas */
+    margin-bottom: 15px; /* Deja un hueco debajo para separarla del texto */
+}
+
+/* MAPA RESPONSIVE */
+.contenedor-mapa {
+    position: relative; /* Fijador para que el mapa se quede dentro y no se salga */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding-bottom: 56.25%; /* Le damos forma rectangular (panorámica) que se adapta al móvil automáticamente */
+    height: 0; /* La altura la controla la línea de arriba (el padding), por eso aquí ponemos 0 */
+    overflow: hidden; /* Si algo sobresale de la caja, lo recorta */
+    background-color: #eee; /* Un color gris de fondo por si el mapa tarda en cargar */
+}
+
+/* --- COLUMNA 3: NOTICIAS --- */
+.columna-noticias {
+    width: 20%; /* Esta columna ocupa el 20% del ancho de la pantalla */
+    background-color: #d9e2ec; /* Le ponemos un color de fondo diferente para diferenciarlo del resto */
+    padding: 20px; /* Espacio por dentro para que las letras no toquen los bordes de la caja */
+}
+
+.noticia {
+    background-color: white; /* Fondo blanco para que se diferencie sobre el gris de la columna */
+    padding: 15px; /* Espacio interno para que el texto no toque los bordes */
+    margin-bottom: 20px; /* Separación para que no se pegue con la noticia de abajo */
+    border-radius: 4px; /* Redondeamos un poco las esquinas para que quede más suave y le dé un toque mejor */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Una sombra muy floja para dar sensación de profundidad */
+}
+
+/* Selecciona solo las noticias PARES (la 2, la 4, la 6...) */
+.noticia:nth-child(even) {
+    background-color: #fcfcfc; /* Le pone un color un pelín diferente para que no se vea todo igual */
+}
+
+.noticia img {
+    width: 100%; /* Obliga a la imagen a ocupar todo el ancho de la columna para que no se salga */
+    height: auto; /* Mantiene la proporción original de la foto (si el ancho cambia, la altura se adapta sola) */
+    border-radius: 4px; /* Redondea las esquinas */
+    margin-bottom: 10px; /* Deja un espacio de separación con el título de abajo */
+}
+
+.noticia h4 {
+    margin: 10px 0; /* Separa el título por arriba y por abajo para que no esté pegado al resto */
+    color: #102a43; /* Un color azul oscuro para que se diferencia del texto normal */
+    font-size: 1.1em; /* Hace la letra un poquito más grande que el resto */
+}
+
+.noticia a {
+    display: inline-block; /* Si no pongo esto, el enlace no me deja separarlo del texto de arriba */
+    margin-top: 10px; /* Separación por arriba */
+    color: #0077cc; /* Azul normalito de enlace */
+    font-weight: bold; /* Ponemos la letra en negrita para que destaque */
+    font-size: 0.9em; /* La hacemos un pelín más pequeña que el texto normal */
+}
+
+/* BOTÓN FLOTANTE */
+
+.boton-flotante {
+    /* [IMPORTANTE] Fixed: Saca el botón del flujo normal y lo pega a la pantalla */
+    position: fixed; /* Da igual cuánto bajes con el scroll, el botón se queda ahí quieto */
+    top: 20px; /* A 20 píxeles de la parte de arriba */
+    right: 20px; /* A 20 píxeles de la parte derecha */
+    background-color: #102a43; /* Color azul oscuro sólido */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Relleno para darle tamaño al botón */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    border-radius: 30px; /* Bordes muy redondeados */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 0.9em; /* Reduce el tamaño al 90% de la letra normal (un poquito más pequeño) */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3); /* Una sombra negra suave para que se note que flota */
+    z-index: 1000; /* Importante, es como el número de capa. Un número alto asegura que el botón esté SIEMPRE encima del texto y las fotos */
+    transition: background-color 0.3s; /* Animación simple solo para el color de fondo */
+}
+
+/* Estilos cuando paso el ratón por encima (:hover) */
+.boton-flotante:hover {
+    background-color: #d64545; /* Cambia a color rojo indicando que se puede hcaer click */
+    transform: translateY(-2px); /* Mueve el botón 2 píxeles hacia arriba para que parezca que flote o se levanta */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Hacemos la sombra más grande por el movimiento hacia arriba */
+}
+
+/* RESPONSIVE (Móviles y Tablets) */
+
+/* IMPORTANTE Esto es una "Media Query". 
+   Significa: "Aplica las normas de aquí dentro SOLO si la pantalla mide 768px o menos" */
+@media screen and (max-width: 768px) {
+    
+.contenedor-principal {
+/* Importante , en escritorio estaban una al lado de otra (fila). 
+Aquí las obligamos a ponerse una debajo de otra (columna) para que quepan bien. */
+flex-direction: column; 
+}
+
+.columna-menu, .columna-central, .columna-noticias {
+width: 100%; /* En el móvil no queremos columnas estrechas, queremos que cada bloque ocupe todo el ancho */ 
+position: static; /* Desactivamos el "sticky" (fijo) del menú */
+height: auto; /* Dejamos que la altura se ajuste sola al contenido, quitando la altura fija del menú */
+}
+
+.columna-menu {
+text-align: center; /* Menú centrado cuando está en modo móvil */
+}   
+}
+
+/* Cuando la pantalla sea de 480px o menos (Móviles pequeños) */
+@media screen and (max-width: 480px) {
+.foto {
+flex: 1 1 100%; /* Importante, en móviles pequeños cada foto ocupa el 100% (1 columna) */
+}
+}
+
+/* FOOTER */
+.pie-pagina {
+background-color: #102a43; /* Fondo azul oscuro igual que el menú */
+color: white; /* Texto en blanco para que se lea bien */
+text-align: center; /* Alineamos el texto al centro */
+padding: 30px 20px; /* Damos espacio por dentro (arriba/abajo y lados) */
+width: 100%; /* Aseguramos que ocupe todo el ancho de la página */
+margin-top: auto; /* Esto empuja el footer hacia abajo del todo si la pantalla es muy alta */
+border: none; /* Quitamos bordes si los hubiera */
+margin-bottom: 0; /* Nos aseguramos de que no quede espacio en blanco debajo del footer */
+}
+
+.pie-pagina p {
+margin: 0; /* Quitamos el margen que traen los párrafos por defecto */
+padding: 5px 0; /* Pequeña separación entre las líneas de texto */
+font-size: 0.9em; /* Ponemos la letra un poco más pequeña que la del contenido principal */
+opacity: 0.8; /* Le bajamos un poco la intensidad al color para que no destaque tanto */
+}

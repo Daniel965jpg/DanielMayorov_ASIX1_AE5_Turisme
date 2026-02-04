@@ -3,169 +3,252 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turismo Tokio - Japón</title>
-
+    <title>Turismo Tokio - Japón</title> 
+    <link rel="icon" type="image/png" href="img/favicon/bandera-japon.png"> <!--Favicon de la bandera de japón-->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"> <!--Todo este bloque de 3 líneas para precargar la fuente de letras de Google-->
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> <!--Lo mismo para precargar la galería de boostrap-->
 
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/styles.css"> <!--Para conectar con la hoja de Css-->
 </head>
 <body>
 
-    <a href="https://www.gotokyo.org/es/" target="_blank" class="boton-flotante">
+    <a href="https://www.gotokyo.org/es/" target="_blank" class="boton-flotante"> <!--Link para la referencia -->
         Guía Oficial
     </a>
 
-    <div class="contenedor-principal">
+    <div class="contenedor-principal"><!--Div para diferencas para ver el contenedor principal del contenido-->
 
-        <nav class="columna-menu">
-            <h3>Menú Tokio</h3>
-            <ul>
-                <li><a href="#galeria">Galería Urbana</a></li>
-                <li><a href="#fichas">Barrios Clave</a></li>
-                <li><a href="#mapa">Ubicación</a></li>
-                <li><a href="#innovacion">Experiencias</a></li>
-            </ul>
-        </nav>
+    <nav class="columna-menu"><!--Etiqueta semántica para crear una lista de botones dentro de la web para saber donde te lleva-->
+        <h3>Menú Tokio</h3>
+        <ul>
+            <li><a href="#galeria">Galería Urbana</a></li>
+            <li><a href="#fichas">Barrios Clave</a></li>
+            <li><a href="#mapa">Ubicación</a></li>
+            <li><a href="#innovacion">Experiencias</a></li>
+        </ul>
+    </nav>
 
-        <main class="columna-central">
+        <main class="columna-central"> <!--Etiqueta para separa el siguiente bloque de código-->
             
-            <section id="galeria">
-                <h2>Galería Urbana</h2>
-                <div class="galeria-grid">
-                    <div class="foto"><img src="img/galeria/cruce-shibuya.jpeg" alt="Cruce de Shibuya"></div>
-                    <div class="foto"><img src="img/galeria/tokyo-skyree.jpg" alt="Tokyo Skytree"></div>
-                    <div class="foto"><img src="img/galeria/flores-cerezos.jpg" alt="Cerezos en flor"></div>
-                    <div class="foto"><img src="img/galeria/tienda-akihabara.jpg" alt="Tiendas Akihabara"></div>
-                    <div class="foto"><img src="img/galeria/tren-bala.jpg" alt="Tren Bala Shinkansen"></div>
-                    <div class="foto"><img src="img/galeria/ramen.jpg" alt="Ramen tradicional"></div>
-                </div>
-            </section>
-
-            <section id="fichas">
-                <h2>Lugares Imperdibles</h2>
-                
-                <article class="ficha">
-                    <h3>Shibuya</h3>
-                    <img src="img/fichas/shibuya-ciudad.jpg" alt="Barrio de Shibuya" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 10px;">
-                    <p><strong>Ubicación:</strong> Oeste de Tokio.</p>
-                    <p>El corazón de la moda juvenil y hogar del cruce más transitado del mundo.</p>
-                </article>
-
-                <article class="ficha">
-                    <h3>Akihabara</h3>
-                    <img src="img/fichas/akihabara-barrio.jpg" alt="Barrio de Akihabara" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 10px;">
-                    <p><strong>Ubicación:</strong> Distrito Chiyoda.</p>
-                    <p>La meca de la cultura Otaku, el anime, los videojuegos y la electrónica.</p>
-                </article>
-
-                <article class="ficha">
-                    <h3>Asakusa</h3>
-                    <img src="img/fichas/templo-sensoji.jpg" alt="Templo Senso-ji" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 10px;">
-                    <p><strong>Ubicación:</strong> Distrito Taito.</p>
-                    <p>Hogar del templo Senso-ji, representa el ambiente del antiguo Tokio.</p>
-                </article>
-
-                <article class="ficha">
-                    <h3>Odaiba</h3>
-                    <img src="img/fichas/puente-odibaia.jpg" alt="Puente de Odaiba" style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 10px;">
-                    <p><strong>Ubicación:</strong> Bahía de Tokio.</p>
-                    <p>Isla artificial futurista famosa por su arquitectura y vistas al Rainbow Bridge.</p>
-                </article>
-            </section>
-
-            <section id="mapa">
-                <h2>Mapa de la Ciudad</h2>
-                <div class="contenedor-mapa" style="overflow: hidden; padding-bottom: 56.25%; position: relative; height: 0;">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207446.9730533355!2d139.6007827464157!3d35.66816252676722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b857628235d%3A0xcdd9a2d277ea4eeba!2sTokio%2C%20Jap%C3%B3n!5e0!3m2!1ses!2ses!4v1706604000000!5m2!1ses!2ses" width="600" height="450" style="border:0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </section>
-
-            <section id="innovacion" class="mt-5 p-4 border rounded shadow-sm bg-white">
-                <h2 class="text-primary mb-3">Tokio en Imágenes (Crossfade)</h2>
-                <p>Descubre la esencia de la ciudad a través de este carrusel interactivo.</p>
-                
-                <div id="carruselTokio" class="carousel slide carousel-fade" data-bs-ride="carousel">
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src="img/carrusel/tokyo-tower.jpg" class="d-block w-100" alt="Torre de Tokio" style="height: 400px; object-fit: cover;">
-                      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
-                        <h5>Icono de la Ciudad</h5>
-                        <p>La famosa Torre de Tokio iluminando la noche.</p>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <img src="img/carrusel/sushi-chef.jpg" class="d-block w-100" alt="Chef de Sushi" style="height: 400px; object-fit: cover;">
-                      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
-                        <h5>Gastronomía Mundial</h5>
-                        <p>El arte del sushi preparado por maestros.</p>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <img src="img/carrusel/zojoji-temple.jpg" class="d-block w-100" alt="Templo Zojoji" style="height: 400px; object-fit: cover;">
-                      <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
-                        <h5>Tradición Viva</h5>
-                        <p>El templo Zojoji con la modernidad de fondo.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carruselTokio" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
-                  </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carruselTokio" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Siguiente</span>
-                  </button>
-                </div>
-            </section>
-
-        </main>
-
-        <aside class="columna-noticias">
-            <h3>Actualidad</h3>
-            
-            <article class="noticia">
-                <img src="img/noticias/fuegs-artificiales.jpg" alt="Fuegos Artificiales" style="width: 100%; border-radius: 4px;">
-                <h4>Festival Sumida</h4>
-                <p>Vuelven los fuegos artificiales al río...</p>
-                <a href="#">Leer noticia</a>
-            </article>
-
-            <article class="noticia">
-                <img src="img/noticias/super-nintendo.jpg" alt="Nintendo World" style="width: 100%; border-radius: 4px;">
-                <h4>Nintendo World</h4>
-                <p>Expansión confirmada para el área de...</p>
-                <a href="#">Leer noticia</a>
-            </article>
-
-            <article class="noticia">
-                <img src="img/noticias/cerezo-primer-plano.jpg" alt="Sakura" style="width: 100%; border-radius: 4px;">
-                <h4>Temporada Sakura</h4>
-                <p>Pronóstico oficial de la floración para...</p>
-                <a href="#">Leer noticia</a>
-            </article>
-
-            <article class="noticia">
-                <img src="img/noticias/robot-jp.jpg" alt="Robótica" style="width: 100%; border-radius: 4px;">
-                <h4>Expo Robótica</h4>
-                <p>Nuevos asistentes androides en...</p>
-                <a href="#">Leer noticia</a>
-            </article>
-
-            <article class="noticia">
-                <img src="img/noticias/tren-japon.jpg" alt="Transporte" style="width: 100%; border-radius: 4px;">
-                <h4>Nuevo Maglev</h4>
-                <p>Récord de velocidad del nuevo tren...</p>
-                <a href="#">Leer noticia</a>
-            </article>
-        </aside>
-
+<!--
+En esta parte hago la estructura de la galería, separando cada sección con un div-->
+    <section id="galeria">
+    <h2>Galería Urbana</h2>
+    <div class="galeria-grid">
+        
+    <div class="foto">
+        <img src="img/galeria/cruce-shibuya.jpeg" alt="Cruce de Shibuya">
+        <div class="texto-oculto">Cruce de Shibuya</div>
     </div>
 
+    <div class="foto">
+        <img src="img/galeria/tokyo-skyree.jpg" alt="Tokyo Skytree">
+        <div class="texto-oculto">Tokyo Skytree</div>
+    </div>
+
+    <div class="foto">
+        <img src="img/galeria/flores-cerezos.jpg" alt="Cerezos en flor">
+        <div class="texto-oculto">Cerezos en Flor</div>
+    </div>
+
+    <div class="foto">
+        <img src="img/galeria/tienda-akihabara.jpg" alt="Tiendas Akihabara">
+        <div class="texto-oculto">Tiendas Akihabara</div>
+    </div>
+
+    <div class="foto">
+        <img src="img/galeria/tren-bala.jpg" alt="Tren Bala Shinkansen">
+        <div class="texto-oculto">Tren Bala</div>
+    </div>
+
+    <div class="foto">
+        <img src="img/galeria/ramen.jpg" alt="Ramen tradicional">
+        <div class="texto-oculto">Ramen Tradicional</div>
+    </div>
+
+    </div>
+</section>
+
+    <!--Bloques diferentes de etiquetas semánticas categorizando como fichas y con un poco de información e imágenes-->
+
+<section id="fichas"> 
+    <h2>Barrios Principales</h2>
+                
+    <article class="ficha">
+        <h3>Shibuya</h3>
+        <img src="img/fichas/shibuya-ciudad.jpg" alt="Barrio de Shibuya">
+        <p><strong>Ubicación:</strong> Oeste de Tokio.</p>
+        <p>El lugar más famoso por la moda juvenil y el cruce característico.</p>
+    </article>
+
+    <article class="ficha">
+        <h3>Akihabara</h3>
+        <img src="img/fichas/akihabara-barrio.jpg" alt="Barrio de Akihabara">
+        <p><strong>Ubicación:</strong> Distrito Chiyoda.</p>
+        <p>Barrio representativo de la figura anime, la electrónica y la diversidad.</p>
+    </article>
+
+    <article class="ficha">
+        <h3>Asakusa</h3>
+        <img src="img/fichas/templo-sensoji.jpg" alt="Templo Senso-ji">
+        <p><strong>Ubicación:</strong> Distrito Taito.</p>
+        <p>Hogar del templo Senso-ji, representa el ambiente del antiguo Tokio.</p>
+    </article>
+
+    <article class="ficha">
+        <h3>Odaiba</h3>
+        <img src="img/fichas/puente-odibaia.jpg" alt="Puente de Odaiba">
+        <p><strong>Ubicación:</strong> Bahía de Tokio.</p>
+        <p>Isla artificial futurista famosa por su arquitectura y el Rainbow Bridge.</p>
+    </article>
+            
+        <!--
+        Sección Mapa. He ajustado el tamaño de la caja para que el mapa tenga siempre forma rectangular y se vea bien en cualquier móvil sin deformarse.
+        También he puesto que se cargue solo cuando bajas hasta aquí, para que la web vaya más rápida al abrirse.
+        -->
+        
+    </section>
+
+    <section id="mapa">
+        <h2>Mapa de la Ciudad</h2>
+        <div class="contenedor-mapa" style="overflow: hidden; padding-bottom: 56.25%; position: relative; height: 0;">
+        <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207446.973053495!2d139.6007848416685!3d35.66816252601977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b857628235d%3A0xcdd8aef709a2b520!2sTokio%2C%20Jap%C3%B3n!5e0!3m2!1ses!2ses!4v1708456789012!5m2!1ses!2ses" 
+        width="600" 
+        height="450" 
+        style="border:0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        </div>
+    </section>
+
+        <!--
+        Sección Experiencias. 
+        Aquí uso Bootstrap para cumplir con el punto de innovación. 
+        He configurado el carrusel para que las fotos tengan todas el mismo tamaño sin deformarse y he puesto un fondo oscuro transparente en los textos para que se lean bien sobre cualquier imagen.
+        -->
+
+    <section id="innovacion" class="mt-5 p-4 border rounded shadow-sm bg-white">
+        <h2 class="text-primary mb-3">Tokio en Imágenes</h2>
+        <p>Descubre la esencia de la ciudad a través de estas imágenes.</p>
+                
+        <div id="carruselTokio" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+                    
+        <div class="carousel-item active">
+        <img src="img/carrusel/tokyo-tower.jpg" class="d-block w-100" alt="Torre de Tokio" style="height: 400px; object-fit: cover;">
+        <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+            <h5>Icono de la Ciudad</h5>
+            <p>La famosa Torre de Tokio iluminando la noche.</p>
+        </div>
+        </div>
+
+        <div class="carousel-item">
+        <img src="img/carrusel/sushi-chef.jpg" class="d-block w-100" alt="Chef de Sushi" style="height: 400px; object-fit: cover;">
+        <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+            <h5>Gastronomía Mundial</h5>
+            <p>El arte del sushi preparado por maestros.</p>
+        </div>
+        </div>
+
+        <div class="carousel-item">
+        <img src="img/carrusel/zojoji-temple.jpg" class="d-block w-100" alt="Templo Zojoji" style="height: 400px; object-fit: cover;">
+        <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+            <h5>Tradición Viva</h5>
+            <p>El templo Zojoji con la modernidad de fondo.</p>
+        </div>
+        </div>
+
+        <div class="carousel-item">
+        <img src="img/carrusel/tokyo-noche.jpg" class="d-block w-100" alt="Shibuya Noche" style="height: 400px; object-fit: cover;">
+        <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+            <h5>Vida Nocturna</h5>
+            <p>La energía inagotable de los carteles de neón.</p>
+        </div>
+        </div>
+    
+        <div class="carousel-item">
+        <img src="img/carrusel/monte-fuji.jpg" class="d-block w-100" alt="Monte Fuji" style="height: 400px; object-fit: cover;">
+        <div class="carousel-caption bg-dark bg-opacity-50 rounded">
+            <h5>Naturaleza Sagrada</h5>
+            <p>Vistas del monte Fuji al atardecer.</p>
+        </div>
+        </div>
+
+        </div> 
+                  
+
+        <!--
+        Aquí colocamos las flechas para pasar las fotos manualmente.
+        Lo más importante es el atributo 'data-bs-target', que actúa como un conector
+        le dice al botón que debe controlar específicamente el bloque con id '#carruselTokio'        
+        Dentro del botón, solo dejamos el icono de la flecha (carousel-control-prev-icon) para que sea visual.
+        -->        
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carruselTokio" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carruselTokio" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+        
+        </div>
+        </section>
+
+        <!--
+        En este bloque cerramos el contenido principal y damos paso a la barra lateral derecha utilizando la etiqueta semántica "aside" que es para indicar para indicar contenido complementario o secundario
+        Dentro, estructuramos cada noticia individual usando la etiqueta "article"
+        Un detalle técnico clave aquí es el uso del atributo target="_blank" en todos los enlaces, es para abrir una nueva pestaña sin abandonar la web.
+        -->
+
+
+    </main> <aside class="columna-noticias">
+        <h3>Actualidad</h3>
+        <article class="noticia">
+            <img src="img/noticias/fuegs-artificiales.jpg" alt="Fuegos Artificiales">
+            <h4>Festival Sumida</h4>
+            <p>Vuelven los fuegos artificiales al río tras la pausa...</p>
+            <a href="https://japon-secreto.com/festival-fuegos-artificiales-rio-sumida-tokio/" target="_blank">Leer noticia real</a>
+        </article>
+        <article class="noticia">
+            <img src="img/noticias/super-nintendo.jpg" alt="Nintendo World">
+            <h4>Nintendo World</h4>
+            <p>Expansión confirmada para el área de Donkey Kong...</p>
+            <a href="https://www.japan.travel/es/es/news/donkey-kong-countrytm-llega-a-super-nintendo-worldtm-en-universal-studios-japan/" target="_blank">Leer noticia real</a>
+        </article>
+        <article class="noticia">
+            <img src="img/noticias/cerezo-primer-plano.jpg" alt="Sakura">
+            <h4>Temporada Sakura</h4>
+            <p>Pronóstico oficial de la floración para este año...</p>
+            <a href="https://www.nippon.com/es/japan-data/h02648/" target="_blank">Leer noticia real</a>
+        </article>
+        <article class="noticia">
+            <img src="img/noticias/robot-jp.jpg" alt="Robótica">
+            <h4>Expo Robótica</h4>
+            <p>Nuevos asistentes androides presentados en la feria...</p>
+            <a href="http://www.spanish.xinhuanet.com/20251207/25981a954a9a44529b1e1b9992e23d5b/c.html" target="_blank">Leer noticia real</a>
+        </article>
+        <article class="noticia">
+            <img src="img/noticias/tren-japon.jpg" alt="Transporte">
+            <h4>Nuevo Maglev</h4>
+            <p>Récord de velocidad del nuevo tren de levitación...</p>
+            <a href="https://www.noticiasdenavarra.com/economia/2015/04/16/tren-japones-maglev-bate-record-2897631.html" target="_blank">Leer noticia real</a>
+        </article>
+        </aside>
+        
+    <!-- Footer de la página con un mínimo de texto-->
+    </div> <footer class="pie-pagina">
+        <p>© AE05 Turisme Responsive por Daniel Mayorov.</p>
+        <p>Lenguaje de Marcas 0374 - ASIX1</p>
+    </footer>
+
+    <!--Script de boostraap para enlazar-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
